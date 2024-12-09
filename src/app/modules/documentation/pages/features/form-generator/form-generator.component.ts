@@ -30,7 +30,7 @@ export class FormGeneratorComponent {
         type: 'input',
         label: 'email',
         width: this.fieldWidth,
-        validators: [Validators.required],
+        validators: [],
         additional: { inputType: `email` },
       },
       {

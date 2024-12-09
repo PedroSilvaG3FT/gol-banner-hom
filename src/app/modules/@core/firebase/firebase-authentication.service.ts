@@ -10,10 +10,11 @@ import {
   signOut,
   updateProfile,
 } from 'firebase/auth';
+
 import {
-  IDocAuthenticationCredentials,
-  IDocAuthenticationSignUp,
-} from '../../documentation/interfaces/doc-authentication.interface';
+  IFirebaseAuthenticationCredentials,
+  IFirebaseAuthenticationSignUp,
+} from './@interfaces/firebase-authentication.interface';
 import { FirebaseCollectionBase } from './firebase-collection.base';
 
 @Injectable({ providedIn: 'root' })
@@ -25,7 +26,7 @@ export class FirebaseAuthenticationService extends FirebaseCollectionBase {
     this.auth = getAuth();
   }
 
-  public async signUp(data: IDocAuthenticationSignUp) {
+  public async signUp(data: IFirebaseAuthenticationSignUp) {
     try {
       const response = await createUserWithEmailAndPassword(
         this.auth,
@@ -33,7 +34,7 @@ export class FirebaseAuthenticationService extends FirebaseCollectionBase {
         data.password
       );
 
-      await this.create<IDocAuthenticationSignUp>({
+      await this.create<IFirebaseAuthenticationSignUp>({
         ...data,
         uid: response.user.uid,
       });
@@ -50,7 +51,7 @@ export class FirebaseAuthenticationService extends FirebaseCollectionBase {
     }
   }
 
-  public async signIn({ email, password }: IDocAuthenticationCredentials) {
+  public async signIn({ email, password }: IFirebaseAuthenticationCredentials) {
     try {
       await setPersistence(this.auth, browserSessionPersistence);
 
@@ -63,7 +64,7 @@ export class FirebaseAuthenticationService extends FirebaseCollectionBase {
       const refreshToken = response.user.refreshToken;
       const { token: accessToken } = await response.user.getIdTokenResult();
 
-      const data = await this.getByColumn<IDocAuthenticationSignUp>(
+      const data = await this.getByColumn<IFirebaseAuthenticationSignUp>(
         'uid',
         response.user.uid
       );

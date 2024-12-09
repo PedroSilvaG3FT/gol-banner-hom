@@ -12,7 +12,7 @@ import { TerminalWindowComponent } from '../../components/terminal-window/termin
 })
 export class HomeComponent {
   public angularMaterial: string = `ng add @angular/material`;
-  public dependencies: string = `npm i animate.css @iconify/iconify @kolkov/angular-editor`;
+  public dependencies: string = `npm i animate.css @iconify/iconify @ngrx/signals date-fns ngx-image-cropper firebase @kolkov/angular-editor`;
   public dependenciesDev: string = `npm i autoprefixer postcss tailwindcss -D`;
   public gitClone: string = `git clone https://github.com/PedroSilvaG3FT/angular-boilerplate.git`;
 

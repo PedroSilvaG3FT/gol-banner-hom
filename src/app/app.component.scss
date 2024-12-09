@@ -1,0 +1,29 @@
+:host {
+  > main {
+    @apply container p-12 mx-auto max-w-[1280px];
+
+    > h1 {
+      @apply text-lg;
+    }
+
+    > hr {
+      @apply my-8;
+    }
+
+    > article {
+      @apply min-w-[300px] max-w-full w-full mb-12 py-8 overflow-auto resize-x relative;
+
+      > small {
+        @apply absolute bottom-0 right-4 flex items-center gap-2;
+      }
+    }
+
+    > figure {
+      @apply flex items-center justify-center;
+
+      > img {
+        @apply rounded-xl;
+      }
+    }
+  }
+}
