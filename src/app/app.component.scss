@@ -1,6 +1,6 @@
 :host {
   > main {
-    @apply container p-12 mx-auto max-w-[1280px];
+    @apply container p-12 mx-auto max-w-[1280px] mobile:p-4;
 
     > h1 {
       @apply text-lg;
@@ -14,7 +14,7 @@
       @apply min-w-[300px] max-w-full w-full mb-12 py-8 overflow-auto resize-x relative;
 
       > small {
-        @apply absolute bottom-0 right-4 flex items-center gap-2;
+        @apply absolute bottom-0 right-4 flex items-center gap-2 mobile:hidden;
       }
     }
 
